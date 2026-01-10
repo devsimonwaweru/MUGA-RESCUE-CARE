@@ -13,13 +13,13 @@ const merriweather = Merriweather({
 export const metadata = {
   metadataBase: new URL('https://mugarescuecare.org'),
   title: {
-    default: 'Muga Rescue Care – Tigania West',
+    default: 'Muga Rescue Care – Global Humanitarian Support',
     template: '%s | Muga Rescue Care'
   },
-  description: 'Muga Rescue Care provides urgent help, medical aid, food, and shelter support to residents of Tigania West, Meru County.',
+  description: 'Muga Rescue Care provides urgent humanitarian aid, medical relief, and emergency support to communities in crisis worldwide. Donate or volunteer today.',
   openGraph: {
-    title: 'Muga Rescue Care – Tigania West',
-    description: 'Helping people in urgent need across Tigania West, Meru County.',
+    title: 'Muga Rescue Care – Global Humanitarian Support',
+    description: 'Helping people in urgent need around the globe.',
     url: 'https://mugarescuecare.org',
     siteName: 'Muga Rescue Care',
     locale: 'en_KE',
@@ -35,7 +35,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
       <head>
-        {/* JSON-LD Schema for Local SEO (Helps Google find you in Tigania West) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -47,10 +46,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
               "logo": "https://mugarescuecare.org/logo.png",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Tigania West",
-                "addressRegion": "Meru County",
+                "addressLocality": "Nairobi", // Changed to broader HQ location
+                "addressRegion": "Kenya",
                 "addressCountry": "Kenya"
               },
+              "areaServed": "Worldwide", // Added Global scope
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+254700000000",

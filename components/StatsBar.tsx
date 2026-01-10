@@ -9,7 +9,6 @@ interface CounterProps {
 
 function Counter({ end, duration }: CounterProps) {
   const [count, setCount] = useState(0)
-  const countRef = useRef(0) 
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null) 
 
@@ -29,6 +28,7 @@ function Counter({ end, duration }: CounterProps) {
     }
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (sectionRef.current) observer.unobserve(sectionRef.current)
     }
   }, [])
