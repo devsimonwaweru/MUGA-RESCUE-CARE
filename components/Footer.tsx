@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
               <a href="#" className="w-8 h-8 rounded bg-gray-700 flex items-center justify-center hover:bg-brand-red transition">
-                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faXTwitter} />
               </a>
               <a href="#" className="w-8 h-8 rounded bg-gray-700 flex items-center justify-center hover:bg-brand-red transition">
                 <FontAwesomeIcon icon={faInstagram} />

@@ -3,15 +3,10 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faHandHoldingHeart, 
-  faBolt, 
-  faScaleBalanced, 
   faUsers,
-  faEarthAfrica,
-  faHandshake,
-  faLightbulb
+  faEarthAfrica
 } from '@fortawesome/free-solid-svg-icons'
 
-// --- SEO OPTIMIZATION ---
 export const metadata = {
   title: 'About Us – Global Humanitarian Aid | Muga Rescue Care',
   description: 'Learn about Muga Rescue Care, a global humanitarian initiative founded by Hon Fred Muga. We provide emergency relief, medical aid, and community empowerment to those in need.',
@@ -34,7 +29,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="pt-20">
-      {/* Page Header */}
+      {/* Page Header - Deep Blue */}
       <section className="bg-[#1d3557] py-20 text-center text-white">
         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">About Muga Rescue Care</h1>
         <p className="text-lg opacity-80 max-w-2xl mx-auto">Driven by Compassion, Powered by Action. Global Humanitarian Support.</p>
@@ -53,15 +48,14 @@ export default function AboutPage() {
             />
           </div>
           <div className="w-full md:w-1/2">
-            {/* H2 Keyword: Humanitarian Initiative */}
             <h2 className="text-3xl font-serif font-bold text-[#e63946] mb-6">Our Mission</h2>
-            <p className="text-gray-700 mb-4 leading-relaxed">
-              Muga Rescue Care is a humanitarian initiative founded by <strong>Hon. Fred Muga</strong>, committed to saving lives and restoring hope for people facing urgent and critical situations.
+            <p className="text-brand-blue mb-4 leading-relaxed font-medium">
+              Muga Rescue Care is a humanitarian initiative founded by <strong>Hon. Fredrick Mugambi (Muga)</strong>, committed to saving lives and restoring hope for people facing urgent and critical situations.
             </p>
-            <p className="text-gray-700 mb-4 leading-relaxed">
+            <p className="text-brand-blue mb-4 leading-relaxed font-medium">
               Our mission is to provide immediate, compassionate, and reliable assistance to individuals and families affected by emergencies—locally and globally. While our roots are in Tigania West, Meru County, our reach extends beyond borders to ensure that no one in need is left behind.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-brand-blue leading-relaxed font-medium">
               We operate with integrity, transparency, and community empowerment, working tirelessly to support most vulnerable and respond swiftly when help is needed most.
             </p>
           </div>
@@ -69,60 +63,39 @@ export default function AboutPage() {
       </section>
 
       {/* Vision Section */}
-      <section className="bg-gray-50 py-16 border-l-8 border-[#e63946]">
+      <section className="bg-blue-50 py-16 border-l-8 border-[#e63946]">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-8 text-center">Our Vision</h2>
-          <p className="text-xl md:text-2xl text-center text-gray-700 max-w-3xl mx-auto font-medium italic">
+          <p className="text-xl md:text-2xl text-center text-[#1d3557] max-w-3xl mx-auto font-medium italic">
             &quot;To create a world where every person has access to timely support, dignity, and hope, regardless of their location, circumstances, or background.&quot;
           </p>
         </div>
       </section>
 
-      {/* Core Values Grid */}
+      {/* Core Values Grid - 3 Columns */}
       <section className="py-20 container mx-auto px-6">
         <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-12 text-center">Our Core Values</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Value 1 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
+          <div className="bg-white p-6 border border-blue-100 rounded-lg hover:shadow-lg transition">
             <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faHandHoldingHeart} /></div>
-            <h3 className="text-xl font-bold mb-2">Compassion</h3>
-            <p className="text-gray-600">We respond to every situation with empathy, respect, and genuine care for human life.</p>
+            <h3 className="text-xl font-bold mb-2">Compassion and Empathy</h3>
+            <p className="text-brand-blue">We respond to every situation with empathy, respect, and genuine care for human life.</p>
           </div>
 
           {/* Value 2 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
-            <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faBolt} /></div>
-            <h3 className="text-xl font-bold mb-2">Urgency</h3>
-            <p className="text-gray-600">We act quickly and decisively, understanding that time is critical in emergencies.</p>
+          <div className="bg-white p-6 border border-blue-100 rounded-lg hover:shadow-lg transition">
+            <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faUsers} /></div>
+            <h3 className="text-xl font-bold mb-2">Community Empowerment</h3>
+            <p className="text-brand-blue">We believe lasting impact comes from working with communities and strengthening local capacity.</p>
           </div>
 
           {/* Value 3 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
-            <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faScaleBalanced} /></div>
-            <h3 className="text-xl font-bold mb-2">Integrity</h3>
-            <p className="text-gray-600">We uphold transparency, accountability, and ethical leadership in all our actions and use of resources.</p>
-          </div>
-
-          {/* Value 4 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
-            <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faUsers} /></div>
-            <h3 className="text-xl font-bold mb-2">Community Empowerment</h3>
-            <p className="text-gray-600">We believe lasting impact comes from working with communities and strengthening local capacity.</p>
-          </div>
-
-          {/* Value 5 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
+          <div className="bg-white p-6 border border-blue-100 rounded-lg hover:shadow-lg transition">
             <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faEarthAfrica} /></div>
-            <h3 className="text-xl font-bold mb-2">Inclusivity</h3>
-            <p className="text-gray-600">We serve all people without discrimination, ensuring fairness and equal access to support.</p>
-          </div>
-
-          {/* Value 6 */}
-          <div className="bg-white p-6 border border-gray-200 rounded-lg hover:shadow-lg transition">
-            <div className="text-4xl text-[#e63946] mb-4"><FontAwesomeIcon icon={faHandshake} /></div>
-            <h3 className="text-xl font-bold mb-2">Collaboration</h3>
-            <p className="text-gray-600">We partner with individuals, organizations, and institutions to maximize impact and reach.</p>
+            <h3 className="text-xl font-bold mb-2">Inclusivity and Collaboration</h3>
+            <p className="text-brand-blue">We serve all people without discrimination, ensuring fairness and equal access to support. We partner with individuals, organizations, and institutions to maximize impact and reach.</p>
           </div>
         </div>
       </section>
@@ -140,7 +113,7 @@ export default function AboutPage() {
                   className="object-cover rounded-full border-4 border-[#e63946] shadow-2xl"
                 />
               </div>
-              <p className="text-center mt-4 text-xl font-bold">Hon. Fred Muga</p>
+              <p className="text-center mt-4 text-xl font-bold">Hon. Fredrick Mugambi (Muga)</p>
               <p className="text-center text-sm opacity-80">Founder</p>
             </div>
             <div className="w-full md:w-2/3">
