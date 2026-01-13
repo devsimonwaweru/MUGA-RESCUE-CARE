@@ -18,7 +18,6 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
- 
     <nav className="fixed top-0 w-full z-9999 bg-[#e63946] text-white shadow-2xl h-20 flex items-center border-b border-red-800">
       <div className="container mx-auto px-6 flex justify-between items-center">
         
@@ -59,6 +58,14 @@ export default function Navbar() {
             className={`transition hover:text-gray-200 ${isActive('/contact') ? 'underline' : ''}`}
           >
             Contact
+          </Link>
+          
+          {/* NEW: News Link */}
+          <Link 
+            href="/news" 
+            className={`transition hover:text-gray-200 ${isActive('/news') ? 'underline' : ''}`}
+          >
+            News
           </Link>
         </div>
 
@@ -115,6 +122,15 @@ export default function Navbar() {
             className="text-xl font-bold text-[#e63946] w-full text-center"
           >
             Contact
+          </Link>
+          
+          {/* NEW: Mobile News Link */}
+          <Link 
+            href="/news" 
+            onClick={toggleMenu} 
+            className="text-xl font-bold text-[#e63946] w-full text-center"
+          >
+            News
           </Link>
           
           {/* Mobile Donate Button */}
