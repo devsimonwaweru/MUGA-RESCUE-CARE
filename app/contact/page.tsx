@@ -1,3 +1,7 @@
+"use client"
+
+import Image from 'next/image'
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faPhone, 
@@ -5,10 +9,15 @@ import {
   faLocationDot,
   faPaperPlane
 } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faInstagram, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-// Using free-solid for standard icons, adding brands manually for socials if needed
-// import { faFacebook, faTwitter, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons' 
-// Note: Uncomment the import line above if you install the brands package
+// Added TikTok and YouTube to imports
+import { 
+  faFacebook, 
+  faXTwitter, 
+  faInstagram,
+  faWhatsapp,
+  faYoutube,
+  faTiktok
+} from '@fortawesome/free-brands-svg-icons'
 
 export default function ContactPage() {
   return (
@@ -65,9 +74,10 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* --- RIGHT COLUMN: CONTACT FORM --- */}
-          <div className="bg-white rounded-lg shadow-xl p-8 border-t-8 border-[#e63946]">
+        {/* --- RIGHT COLUMN: CONTACT FORM --- */}
+        <div className="bg-white rounded-lg shadow-xl p-8 border-t-8 border-[#e63946]">
             <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-8 pb-6 border-b border-gray-100">
               Send a Message
             </h2>
@@ -75,7 +85,7 @@ export default function ContactPage() {
             {/* 
                IMPORTANT: 
                We use "action" instead of "onSubmit" to send data directly to Formspree (or similar).
-               This is the standard way to handle forms without a backend API.
+               This is standard way to handle forms without a backend API.
             */}
             <form action="https://formspree.io/f/yourid" method="POST" className="space-y-6">
               <div>
@@ -127,16 +137,17 @@ export default function ContactPage() {
                 Send Message <FontAwesomeIcon icon={faPaperPlane} />
               </button>
             </form>
-          </div>
+        </div>
       </div>
 
-      {/* --- SOCIAL MEDIA SECTION (Requested by user) --- */}
-      <div className="max-w-3xl mx-auto pt-8 pb-20 px-6">
+      {/* --- SOCIAL MEDIA SECTION --- */}
+      <div className="max-w-6xl mx-auto pt-8 pb-20 px-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif font-bold text-[#1d3557]">Connect With Us</h2>
+          <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-4">Connect With Us</h2>
           <p className="text-gray-600">Follow our updates and join the conversation on social media.</p>
         </div>
 
+        {/* Updated to 4 Columns for TikTok and YouTube */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Facebook */}
@@ -146,8 +157,7 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
           >
-            {/* Using generic brand colors since we might not have 'free-brands-svg-icons' installed yet */}
-            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-[#1877F] transition-colors">
+            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-[#1877F2] transition-colors">
               <FontAwesomeIcon icon={faFacebook} className="text-xl" style={{ color: '#1877F2' }} />
             </div>
             <span className="font-bold text-gray-700 group-hover:text-[#1877F2] transition-colors">Facebook</span>
@@ -161,9 +171,9 @@ export default function ContactPage() {
             className="flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
           >
             <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-[#1DA1F2] transition-colors">
-              <FontAwesomeIcon icon={faTwitter} className="text-xl" style={{ color: '#1DA1F2' }} />
+              <FontAwesomeIcon icon={faXTwitter} className="text-xl" style={{ color: '#1DA1F2' }} />
             </div>
-            <span className="font-bold text-gray-700 group-hover:text-[#1DA1F2] transition-colors">Twitter</span>
+            <span className="font-bold text-gray-700 group-hover:text-[#1DA1F2] transition-colors">X</span>
           </a>
 
           {/* Instagram */}
@@ -179,14 +189,40 @@ export default function ContactPage() {
             <span className="font-bold text-gray-700 group-hover:text-[#E1306C] transition-colors">Instagram</span>
           </a>
 
-          {/* WhatsApp (Important for Kenya/NGOs) */}
+          {/* YouTube - Updated Layout */}
+          <a 
+            href="https://youtube.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
+          >
+            <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mb-3 group-hover:bg-red-200 transition-colors">
+              <FontAwesomeIcon icon={faYoutube} className="text-xl" style={{ color: '#FF0000' }} />
+            </div>
+            <span className="font-bold text-gray-700 group-hover:text-black transition-colors">YouTube</span>
+          </a>
+
+          {/* TikTok - New Requested Platform */}
+          <a 
+            href="https://tiktok.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
+          >
+            <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center mb-3 group-hover:bg-gray-200 transition-colors">
+              <FontAwesomeIcon icon={faTiktok} className="text-xl" style={{ color: '#FFFFFF' }} />
+            </div>
+            <span className="font-bold text-gray-700 group-hover:text-black transition-colors">TikTok</span>
+          </a>
+
+          {/* WhatsApp */}
           <a 
             href="https://wa.me/254XXXXXXXXX" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="md:col-span-2 lg:col-span-2 flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
+            className="flex flex-col items-center justify-center bg-white p-6 rounded-lg hover:shadow-lg transition border border-gray-100 group"
           >
-            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-[#25D366] transition-colors">
+            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-3 group-hover:bg-green-200 transition-colors">
               <FontAwesomeIcon icon={faWhatsapp} className="text-xl" style={{ color: '#25D366' }} />
             </div>
             <span className="font-bold text-gray-700 group-hover:text-[#25D366] transition-colors">WhatsApp</span>
@@ -194,8 +230,6 @@ export default function ContactPage() {
 
         </div>
       </div>
-
-    </div>
     </div>
   )
 }

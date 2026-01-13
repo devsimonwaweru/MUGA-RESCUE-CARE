@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Contact Us – Get in Touch | Muga Rescue Care',
-  description: 'Contact Muga Rescue Care for emergency help, volunteering, or general inquiries. We are here to support Tigania West and beyond.',
+  description: 'Contact Muga Rescue Care for emergency help, volunteering, or general inquiries.',
 }
 
 export default function ContactLayout({
