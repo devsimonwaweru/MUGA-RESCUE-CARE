@@ -1,78 +1,82 @@
 "use client"
 
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { urlFor } from '@/lib/sanity'
+import { PortableText } from '@portabletext/react' // <--- REQUIRED
+
+interface NewsItem {
+  title: string;
+  publishedAt: string;
+  author: string;
+  mainImage: any;
+  content: any;
+}
 
 interface NewsModalProps {
   isOpen: boolean
   onClose: () => void
-  news: {
-    title: string
-    date: string
-    image: string
-    content: string
-    author: string
-  } | null
+  news: NewsItem
 }
 
-export default function NewsModal({ isOpen, onClose, news }: NewsModalProps) {
-  if (!isOpen || !news) return null
+const NewsModal = ({ isOpen, onClose, news }: NewsModalProps) => {
+  if (!isOpen) return null
+
+  const imageUrl = news.mainImage ? urlFor(news.mainImage).url() : '/placeholder.jpg'
 
   return (
-    <>
-      {/* 
-         Backdrop: 
-         z-[10000] -> Ensures it sits ABOVE the Navbar (z-[9999]) and Footer
-      */}
-      <div className="fixed inset-0 bg-black/80 z-[10000] flex items-center justify-center p-4 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70">
+      <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl">
         
-        {/* 
-           Modal Container: 
-           flex-col (Mobile) -> Stacked
-           md:flex-row (Desktop) -> Side-by-Side (Horizontal)
-        */}
-        <div className="bg-white rounded-lg shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden relative">
-          
-          {/* Left Side: Image (40% width on Desktop) */}
-          <div className="w-full md:w-2/5 h-64 md:h-auto relative bg-gray-100">
-            <Image 
-              src={news.image} 
-              alt={news.title} 
-              fill 
-              className="object-cover w-full h-full"
-              priority
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 bg-red-100 text-red-600 p-2 rounded-full hover:bg-red-200 z-10"
+        >
+          ✕
+        </button>
+
+        <div className="relative h-64 md:h-80 w-full">
+          <Image 
+            src={imageUrl} 
+            alt={news.title} 
+            fill 
+            className="object-cover"
+          />
+        </div>
+
+        <div className="p-8">
+          <div className="flex items-center gap-3 text-gray-500 mb-4 text-sm">
+             <span>{new Date(news.publishedAt).toLocaleDateString()}</span>
+             <span>•</span>
+             <span>By {news.author}</span>
+          </div>
+
+          <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-6">
+            {news.title}
+          </h2>
+
+          <div className="prose max-w-none text-gray-800">
+            <PortableText 
+              value={news.content}
+              components={{
+                block: {
+                  normal: ({children}) => <p className="mb-4">{children}</p>,
+                }
+              }}
             />
           </div>
 
-          {/* Right Side: Content (60% width on Desktop, Scrollable) */}
-          <div className="w-full md:w-3/5 p-6 md:p-10 overflow-y-auto relative">
-            
-            {/* Close Button */}
+          <div className="mt-8">
             <button 
               onClick={onClose}
-              className="absolute top-4 right-4 bg-[#1d3557] text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-700 transition z-20"
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded"
             >
-              <FontAwesomeIcon icon={faXmark} />
+              Close
             </button>
-
-            <div className="flex items-center justify-between mb-4 mt-8">
-              <span className="text-xs font-bold text-[#1d3557] bg-blue-100 px-3 py-1 rounded-full">
-                {news.date}
-              </span>
-              <span className="text-xs text-gray-500">By {news.author}</span>
-            </div>
-            
-            <h2 className="text-3xl font-serif font-bold text-[#1d3557] mb-6 leading-tight">
-              {news.title}
-            </h2>
-            
-            <div className="prose prose-blue max-w-none text-[#1d3557] leading-relaxed">
-              <p>{news.content}</p>
-            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
+
+export default NewsModal
